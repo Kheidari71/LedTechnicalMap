@@ -1,87 +1,31 @@
 import React from "react";
+import DimensionGroup from "./DimensionGroup";
+import DimensionItem from "./DimensionItem";
 
 const DimensionBoxes = () => {
-    return (
-        <div className="flex flex-rol md:flex-row justify-center items-start space-y-6 md:space-y-0 md:space-x-8 p-8">
-            {/* Niche Dimensions */}
-            <div className="border-2 border-gray-300 rounded-lg shadow-lg p-6 bg-white w-full max-w-md">
-                <h2 className="text-xl font-semibold text-gray-800 mb-4 text-center">
-                    Niche Dimensions:
-                </h2>
-                <div className="space-y-4">
-                    {/* Height */}
-                    <div className="flex flex-col items-center border-2 border-gray-300 rounded-md p-3">
-                        <span className="text-gray-700 font-medium mb-1">Height</span>
-                        <input
-                            type="text"
-                            value="30.5"
-                            className="border-none bg-gray-100 text-center rounded-md w-full py-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                            readOnly
-                        />
-                    </div>
-                    {/* Width */}
-                    <div className="flex flex-col items-center border-2 border-gray-300 rounded-md p-3">
-                        <span className="text-gray-700 font-medium mb-1">Width</span>
-                        <input
-                            type="text"
-                            value="51"
-                            className="border-none bg-gray-100 text-center rounded-md w-full py-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                            readOnly
-                        />
-                    </div>
-                    {/* Depth */}
-                    <div className="flex flex-col items-center border-2 border-gray-300 rounded-md p-3">
-                        <span className="text-gray-700 font-medium mb-1">Depth</span>
-                        <input
-                            type="text"
-                            value="3.7"
-                            className="border-none bg-gray-100 text-center rounded-md w-full py-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                            readOnly
-                        />
-                    </div>
-                </div>
-            </div>
+  return (
+    <div className="w-full h-auto p-4 lg:p-8 bg-white border-gray-200">
+      <h2 className="text-xl font-semibold text-gray-800 mb-6 text-center">
+        Dimensions
+      </h2>
 
-            {/* Screen Dimensions */}
-            <div className="border-2 border-gray-300 rounded-lg shadow-lg p-6 bg-white w-full max-w-md">
-                <h2 className="text-xl font-semibold text-gray-800 mb-4 text-center">
-                    Screen Dimensions:
-                </h2>
-                <div className="space-y-4">
-                    {/* Height */}
-                    <div className="flex flex-col items-center border-2 border-gray-300 rounded-md p-3">
-                        <span className="text-gray-700 font-medium mb-1">Height</span>
-                        <input
-                            type="text"
-                            value="28"
-                            className="border-none bg-gray-100 text-center rounded-md w-full py-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                            readOnly
-                        />
-                    </div>
-                    {/* Width */}
-                    <div className="flex flex-col items-center border-2 border-gray-300 rounded-md p-3">
-                        <span className="text-gray-700 font-medium mb-1">Width</span>
-                        <input
-                            type="text"
-                            value="48.50"
-                            className="border-none bg-gray-100 text-center rounded-md w-full py-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                            readOnly
-                        />
-                    </div>
-                    {/* Floor Line */}
-                    <div className="flex flex-col items-center border-2 border-gray-300 rounded-md p-3">
-                        <span className="text-gray-700 font-medium mb-1">Floor Line</span>
-                        <input
-                            type="text"
-                            value="50"
-                            className="border-none bg-gray-100 text-center rounded-md w-full py-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                            readOnly
-                        />
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* Niche Dimensions */}
+        <DimensionGroup title="Niche Dimensions">
+          <DimensionItem label="Height" value="30.5" />
+          <DimensionItem label="Width" value="51" />
+          <DimensionItem label="Depth" value="3.7" />
+        </DimensionGroup>
+
+        {/* Screen Dimensions */}
+        <DimensionGroup title="Screen Dimensions">
+          <DimensionItem label="Height" value="28" />
+          <DimensionItem label="Width" value="48.50" />
+          <DimensionItem label="Depth" value="50" />
+        </DimensionGroup>
+      </div>
+    </div>
+  );
 };
 
 export default DimensionBoxes;

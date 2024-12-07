@@ -1,5 +1,5 @@
 import React from "react";
-
+import Demension from "./Dimension"
 const DiagramLED = () => {
   // Add constants for better maintainability
   const COLORS = {
@@ -11,8 +11,13 @@ const DiagramLED = () => {
 
 
   return (
+   
+    <div className="w-full h-auto p-4 lg:p-8 bg-white">
+      <h2 className="text-xl font-semibold text-gray-800 mb-6 text-center">
+       Technical Map
+      </h2>
     <svg
-    width="50%"
+    width="100%"
     height="auto"
     viewBox="0 0 800 800"
     preserveAspectRatio="xMidYMid meet"
@@ -158,7 +163,7 @@ const DiagramLED = () => {
         y2="110"
         stroke="black"
         strokeWidth="1"
-        markerStart="url(#arrow)"
+        markerStart="url(#arrowReversed)"
         markerEnd="url(#arrow)"
       />
        <line
@@ -192,7 +197,7 @@ const DiagramLED = () => {
         y2="500"
         stroke="black"
         strokeWidth="1"
-        markerStart="url(#arrow)"
+        markerStart="url(#arrowReversed)"
         markerEnd="url(#arrow)"
       />
 
@@ -227,7 +232,7 @@ const DiagramLED = () => {
         y2="455"
         stroke="black"
         strokeWidth="1"
-        markerStart="url(#arrow)"
+        markerStart="url(#arrowReversed)" 
         markerEnd="url(#arrow)"
       />
 
@@ -272,7 +277,7 @@ const DiagramLED = () => {
         y2="445"
         stroke="black"
         strokeWidth="1"
-        markerStart="url(#arrow)"
+        markerStart="url(#arrowReversed)"
         markerEnd="url(#arrow)"
       />
  <line
@@ -317,7 +322,7 @@ const DiagramLED = () => {
         y2="690"
         stroke="black"
         strokeWidth="1"
-        markerStart="url(#arrow)"
+        markerStart="url(#arrowReversed)"
         markerEnd="url(#arrow)"
       />
       <text x="30" y="620" textAnchor="middle" fontSize="12">
@@ -326,16 +331,15 @@ const DiagramLED = () => {
 
       {/* Arrow Definitions */}
       <defs>
-        <marker
-          id="arrow"
-          markerWidth="10"
-          markerHeight="10"
-          refX="5"
-          refY="5"
-          orient="auto"
-        >
-          <path d="M0,0 L10,5 L0,10 Z" fill="black" />
-        </marker>
+          {/* Normal Arrow */}
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="black" />
+    </marker>
+    {/* Reversed Arrow */}
+    <marker id="arrowReversed" viewBox="0 0 10 10" refX="0" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M10,0 L0,5 L10,10 z" fill="black" />
+    </marker>
+     
       </defs>
 
       {/* Circle at Intersection of Centerlines */}
@@ -353,6 +357,9 @@ const DiagramLED = () => {
         <text x="35" y="60" fontSize="10">Reference Lines</text>
       </g>
     </svg>
+    </div>
+  
+
   );
 };
 
