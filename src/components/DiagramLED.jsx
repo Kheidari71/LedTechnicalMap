@@ -12,8 +12,8 @@ const DiagramLED = () => {
 
   return (
    
-    <div className="w-full h-auto p-4 lg:p-8 bg-white">
-      <h2 className="text-xl font-semibold text-gray-800 mb-6 text-center">
+    <div className="w-full h-auto p-4 bg-white">
+      <h2 className="text-xl font-semibold text-gray-800 mb-6 items-center">
        Technical Map
       </h2>
     <svg
@@ -348,7 +348,7 @@ const DiagramLED = () => {
       <circle cx="400" cy="300" r="3" fill="yellow" stroke="black"/>
 
       {/* Add a legend */}
-      <g transform="translate(20, 20)">
+      <g transform="translate(20, 0)">
         <rect width="150" height="80" fill={COLORS.background} stroke={COLORS.primary} />
         <text x="10" y="20" fontSize="12" fontWeight="bold">Legend:</text>
         <line x1="10" y1="35" x2="30" y2="35" stroke={COLORS.primary} strokeWidth="1.5"/>
