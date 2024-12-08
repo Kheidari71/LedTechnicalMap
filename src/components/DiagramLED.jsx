@@ -13,7 +13,7 @@ const DiagramLED = () => {
   return (
    
     <div className="w-full h-auto p-4 bg-white">
-      <h2 className="text-xl font-semibold text-gray-800 mb-6 items-center">
+      <h2 className="text-md font-semibold text-gray-800 mb-6 items-center">
        Technical Map
       </h2>
     <svg

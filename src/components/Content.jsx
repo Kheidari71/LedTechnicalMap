@@ -14,7 +14,7 @@ const Content = () => {
                         <DiagramLED />
                     </div>
                     {/* Dimensions take 5 columns on large screens */}
-                    <div className="col-span-12 lg:col-span-5 flex flex-col items-start justify-center">
+                    <div className="col-span-12 lg:col-span-5 flex flex-col items-start ">
                         <DimensionBoxes />
                     </div>
 

@@ -5,8 +5,8 @@ import NotesSection from "./NoteSection";
 
 const DimensionBoxes = () => {
   return (
-    <div className="w-full h-auto p-4  bg-white border-gray-200">
-      <h2 className="text-xl font-semibold text-gray-800 mb-6 text-center">
+    <div className="w-full h-auto p-2  bg-white border-gray-200">
+      <h2 className="text-md font-semibold text-gray-800 mb-6 text-center">
         Dimensions
       </h2>
 
@@ -27,10 +27,10 @@ const DimensionBoxes = () => {
         </DimensionGroup>
       
       </div>
- <div className="w-full top-14 pt-20">
+ <div className="w-full top-14 pt-36">
  <NotesSection/>
  </div>
- <div className="w-full top-14 pt-20">
+ <div className="w-full  ">
  <NotesSection/>
  </div>
       
