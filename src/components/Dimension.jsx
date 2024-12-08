@@ -27,7 +27,7 @@ const DimensionBoxes = () => {
         </DimensionGroup>
       
       </div>
- <div className="w-full top-14 pt-36">
+ <div className="w-full top-12 pt-28">
  <NotesSection/>
  </div>
  <div className="w-full  ">

@@ -100,6 +100,7 @@ const Sidebar = () => {
             {value: "On some of the product" , label: "On Some of the product"}
             ]}
         />
+        <button className=' rounded-md mt-3 p-2 text-white w-full bg-blue-400 border-blue-400'>Doanload</button>
         </form>
 </div>
            </div>
