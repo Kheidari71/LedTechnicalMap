@@ -14,16 +14,16 @@ const DimensionBoxes = () => {
         {/* Niche Dimensions */}
         
         <DimensionGroup title="Niche Dimensions">
-          <DimensionItem label="Height" value="30.5" className="flex flex-col items-center border-2 border-gray-300 rounded-md p-1"/>
-          <DimensionItem label="Width" value="51" className="flex flex-col items-center border-2 border-gray-300 rounded-md p-1"/>
-          <DimensionItem label="Depth" value="3.7" className="flex flex-col items-center border-2 border-gray-300 rounded-md p-1"/>
+          <DimensionItem label="Height" value="30.5" className="flex flex-row items-center justify-between border border-gray-300 h-8"/>
+          <DimensionItem label="Width" value="51" className="flex flex-row items-center justify-between border border-gray-300 h-8"/>
+          <DimensionItem label="Depth" value="3.7" className="flex flex-row items-center justify-between border border-gray-300 h-8"/>
         </DimensionGroup>
 
         {/* Screen Dimensions */}
         <DimensionGroup title="Screen Dimensions">
-          <DimensionItem label="Height" value="28" className="flex flex-col items-center border-2 border-gray-300 rounded-md p-1"/>
-          <DimensionItem label="Width" value="48.50" className="flex flex-col items-center border-2 border-gray-300 rounded-md p-1"/>
-          <DimensionItem label="Depth" value="50" className="flex flex-col items-center border-2 border-gray-300 rounded-md p-1"/>
+          <DimensionItem label="Height" value="28" className="flex flex-row items-center justify-between border border-gray-300 h-8"/>
+          <DimensionItem label="Width" value="48.50" className="flex flex-row items-center justify-between border border-gray-300 h-8"/>
+          <DimensionItem label="Depth" value="50" className="flex flex-row items-center justify-between border border-gray-300 h-8"/>
         </DimensionGroup>
       
       </div>

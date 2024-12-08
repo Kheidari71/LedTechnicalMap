@@ -4,12 +4,12 @@ import DimensionItem from './DimensionItem';
 
 const Sidebar = () => {
     return (
-        <div className=' fixed w-64 lg:right-0 -right-64 top-0 pt-14  '>
+        <div className='overflow-y-auto h-full fixed w-72 lg:right-0 -right-72 top-0 pt-14  '>
 
           
-           <div className='w-full h-full p-2'>
+           <div className=' w-full p-2'>
 <div className='w-full border'>
-    <form className='text-start p-2'>
+    <form className='flex mt-4 flex-col items-center justify-around text-start pb-6'>
         <p className='font-bold text-sm mb-2'>Configuration</p>
         <SelectInput
         label="Screen"
@@ -39,21 +39,21 @@ const Sidebar = () => {
             {value: "On some of the product" , label: "On Some of the product"}
             ]}
         />
-<div className='grid grid-cols-2'>
+<div className='grid grid-cols-1 px-5'>
 <DimensionItem
-        className="flex flex-col items-center border-2 border-gray-300 rounded-md "
+        className="flex h-8 mb-2 flex-row items-center justify-between  border-2 border-gray-300 rounded-md" 
         label="Floor Distance" value="28"
         />
          <DimensionItem
-        className="flex flex-col items-center border-2 border-gray-300 rounded-md "
+        className="flex h-8 mb-2 flex-row items-center justify-between  border-2 border-gray-300 rounded-md"
         label="Niche Depth var" value="28"
         />
         <DimensionItem
-        className="flex flex-col items-center border-2 border-gray-300 rounded-md "
+        className="flex flex-row items-center justify-between  border-2 border-gray-300 rounded-sm"
         label="Floor Distance" value="28"
         />
          <DimensionItem
-        className="flex flex-col items-center border-2 border-gray-300 rounded-md "
+        className="flex flex-row items-center justify-between  border-2 border-gray-300 rounded-sm"
         label="Niche Depth var" value="28"
         />
 </div>
@@ -63,7 +63,7 @@ const Sidebar = () => {
            </div>
            <div className='w-full h-full p-2'>
 <div className='w-full border'>
-    <form className='text-start'>
+    <form className=' flex flex-col items-center  text-start p-5'>
     <p className='font-bold text-sm mb-2'>Description</p>
         <SelectInput
         label="Title"

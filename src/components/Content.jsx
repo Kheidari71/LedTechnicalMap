@@ -5,7 +5,7 @@ import DimensionBoxes from './Dimension';
 
 const Content = () => {
     return (
-        <section className=" w-full h-full pt-14 lg:pr-64 pr-0 top-0">
+        <section className="overflow-y-auto w-full h-full pt-14 lg:pr-72 pr-0 top-0">
             <div className="w-full p-2 h-full ">
                 {/* Grid layout for side-by-side containers */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-2 h-full border ">
