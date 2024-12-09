@@ -19,7 +19,7 @@ const DimensionBoxes = () => {
         {/* Niche Dimensions */}
         
         <DimensionGroup title="Niche Dimensions">
-          <DimensionItem label="Height" value="30.5" className="flex flex-row items-center justify-between border border-gray-300 h-8"/>
+          <DimensionItem label="Height" value="30.5" className="items-center text-center justify-between border border-gray-300 h-8"/>
           <DimensionItem label="Width" value="51" className="flex flex-row items-center justify-between border border-gray 300 h-8"/>
           <DimensionItem label="Depth" value="3.7" className="flex flex-row items-center justify-between border border-gray-300 h-8"/>
         </DimensionGroup>

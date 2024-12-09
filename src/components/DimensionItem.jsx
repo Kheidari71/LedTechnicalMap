@@ -2,8 +2,10 @@ import React from "react";
 
 const DimensionItem = ({ label, value ,className }) => {
   return (
-    <div className={className}>
-      <span className=" pt-1 bg-gray-400 w-1/2 h-full text-center text-white items-center text-sm m-auto">{label}</span>
+    <div className={`flex items-center text-center  ${className}`}>
+        <div className="flex justify-center bg-gray-400 text-center w-1/2 items-center h-full ">
+      <span className=" text-white   text-sm ">{label}</span>
+      </div>
       <input
         type="text"
         value={value}

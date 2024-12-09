@@ -356,7 +356,7 @@ const DiagramLED = () => {
         <line x1="10" y1="55" x2="30" y2="55" strokeDasharray="3,3" stroke={COLORS.primary}/>
         <text x="35" y="60" fontSize="10">Reference Lines</text>
       </g>
-      
+     
     </svg>
     </div>
   
