@@ -3,7 +3,7 @@ import React from "react";
 const DimensionItem = ({ label, value ,className }) => {
   return (
     <div className={className}>
-      <span className="text-gray-700 pt-1 bg-gray-100 w-1/2 h-7 text-center items-center text-sm m-auto">{label}</span>
+      <span className=" pt-1 bg-gray-400 w-1/2 h-full text-center text-white items-center text-sm m-auto">{label}</span>
       <input
         type="text"
         value={value}
