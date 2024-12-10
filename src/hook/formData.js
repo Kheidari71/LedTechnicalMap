@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
 import * as XLSX from "xlsx";
 
-
 const useExcelData = (filePath) => {
-  const [data, setData] = useState([]);
+  const [sheetData, setSheetData] = useState({
+    sheet1: [],
+    sheet2: [],
+    sheet3: [],
+    sheet4: [],
+  });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -22,10 +26,18 @@ const useExcelData = (filePath) => {
           try {
             const arrayBuffer = event.target.result;
             const workbook = XLSX.read(arrayBuffer, { type: "array" });
-            const sheetName = workbook.SheetNames[0]; // انتخاب اولین شیت
-            const worksheet = workbook.Sheets[sheetName];
-            const jsonData = XLSX.utils.sheet_to_json(worksheet);
-            setData(jsonData);
+
+            // Extract data from the first 4 sheets
+            const newSheetData = {};
+            const maxSheets = Math.min(4, workbook.SheetNames.length);
+
+            for (let i = 0; i < maxSheets; i++) {
+              const sheetName = workbook.SheetNames[i];
+              const worksheet = workbook.Sheets[sheetName];
+              newSheetData[`sheet${i + 1}`] = XLSX.utils.sheet_to_json(worksheet);
+            }
+
+            setSheetData(newSheetData);
           } catch (err) {
             setError("Error parsing Excel file.");
           } finally {
@@ -43,7 +55,7 @@ const useExcelData = (filePath) => {
     fetchExcelData();
   }, [filePath]);
 
-  return { data, loading, error };
+  return { sheetData, loading, error };
 };
 
 export default useExcelData;

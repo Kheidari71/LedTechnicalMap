@@ -6,6 +6,7 @@ const DimensionItem = ({ label, value ,className }) => {
         <div className="flex justify-center bg-gray-400 text-center w-1/2 items-center h-full ">
       <span className=" text-white   text-sm ">{label}</span>
       </div>
+
       <input
         type="text"
         value={value}
