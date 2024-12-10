@@ -9,7 +9,12 @@ import { useSheetDataStore } from "../zustand/sheetDataStore";
 
 const Sidebar = ({ toPDF, targetRef }) => {
   const { sheetData, loading, error } = useExcelData("/Db.xlsx");
+
   const {
+    selectedScreen,
+    selectedMediaPlayer,
+    selectedMount,
+    selectedReceptacleBox,
     setSelectedScreen,
     setSelectedMediaPlayer,
     setSelectedMount,
@@ -18,9 +23,20 @@ const Sidebar = ({ toPDF, targetRef }) => {
     isNiche,
     toggleIsHorizontal,
     toggleIsNiche,
+    variantDepth,
+    setVarientDepth
   } = useSheetDataStore((state) => state);
 
-  return (
+  useEffect(() => {
+    if (sheetData) {
+      setSelectedScreen(sheetData.sheet1[0]);
+      setSelectedMediaPlayer(sheetData.sheet2[0]);
+      setSelectedMount(sheetData.sheet3[0]);
+      setSelectedReceptacleBox(sheetData.sheet4[0]);
+    }
+  }, [sheetData]);
+
+  return selectedScreen ? (
     <div className="overflow-y-auto h-full fixed w-72 lg:right-0 -right-72 top-0 pt-14">
       <div className="w-full p-2">
         <div className="w-full border">
@@ -30,6 +46,7 @@ const Sidebar = ({ toPDF, targetRef }) => {
           <form className="flex mt-1 flex-col items-center justify-around text-start pb-2">
             <SelectInput
               label="Screen"
+              value={selectedScreen["Screen MFR"]}
               options={sheetData.sheet1.map((sh) => ({
                 value: sh["Screen MFR"],
                 label: sh["Screen MFR"],
@@ -44,6 +61,7 @@ const Sidebar = ({ toPDF, targetRef }) => {
             />
             <SelectInput
               label="Media Player"
+              value={selectedMediaPlayer["MFG. PART"]}
               options={sheetData.sheet2.map((sh) => ({
                 value: sh["MFG. PART"],
                 label: sh["MFG. PART"],
@@ -57,6 +75,7 @@ const Sidebar = ({ toPDF, targetRef }) => {
             <SelectInput
               className="text-center"
               label="Mount"
+              value={selectedMount["MFG. PART"]}
               options={sheetData.sheet3.map((sh) => ({
                 value: sh["MFG. PART"],
                 label: sh["MFG. PART"],
@@ -70,6 +89,7 @@ const Sidebar = ({ toPDF, targetRef }) => {
             <SelectInput
               className="text-center"
               label="Receptacle Box"
+              value={selectedReceptacleBox ? selectedReceptacleBox["MFG. PART"] : ""}
               options={[
                 { value: "", label: "Select option" },
                 ...sheetData.sheet4.map((sh) => ({
@@ -92,7 +112,9 @@ const Sidebar = ({ toPDF, targetRef }) => {
               <DimensionItem
                 className="flex flex-row items-center justify-between border border-gray-300 h-8"
                 label="Niche Depth var"
-                value="28"
+                value={variantDepth}
+                // onChange= {e=>console.log(e.target.value)}
+                onChange={e=>setVarientDepth(e.target.value)}
               />
             </div>
             <div className="grid w-full grid-cols-2 px-5  ">
@@ -144,7 +166,7 @@ const Sidebar = ({ toPDF, targetRef }) => {
         </div>
       </div>
     </div>
-  );
+  ) : null;
 };
 
 export default Sidebar;

@@ -10,9 +10,11 @@ const DiagramLED = () => {
     background: "#FFFFFF",
   };
 //niche lines should be hidden
-  const { isHorizontal, isNiche, toggleIsHorizontal, toggleIsNiche } =
+  const { isHorizontal, isNiche, toggleIsHorizontal, toggleIsNiche ,selectedReceptacleBox , selectedMediaPlayer,
+  selectedMount
+ } =
     useSheetDataStore((state) => state);
-
+console.log(selectedReceptacleBox)
   return (
     <div className="w-full h-auto p-4 bg-white">
       <h2 className="text-md font-semibold text-gray-800 mb-6 items-center">
@@ -52,6 +54,7 @@ const DiagramLED = () => {
 
         {/* Outer Rectangle */}
         {isNiche && (
+          <>
           <rect
             x="140"
             y="140"
@@ -61,6 +64,82 @@ const DiagramLED = () => {
             stroke="black"
             strokeWidth="1"
           />
+
+
+            {/* 51" at bottom */}
+         <line
+          x1="146"
+          y1="500"
+          x2="654"
+          y2="500"
+          stroke="black"
+          strokeWidth="1"
+          markerStart="url(#arrowReversed)"
+          markerEnd="url(#arrow)"
+        /> 
+
+        <line
+          x1="140"
+          y1="500"
+          x2="140"
+          y2="460"
+          stroke="black"
+          strokeWidth=".5"
+          strokeDasharray="2"
+        /> 
+        <line
+          x1="660"
+          y1="500"
+          x2="660"
+          y2="460"
+          stroke="black"
+          strokeWidth=".5"
+          strokeDasharray="2"
+        />
+        <rect
+          x="350"
+          y="518"
+          width="40"
+          height="20"
+          fill="none"
+          stroke="black"
+          strokeWidth="1"
+        />
+        <text x="370" y="530" textAnchor="middle" fontSize="12">
+          51"
+        </text>
+
+        {/* 30.5" on left */}
+        <line
+          x1="100"
+          y1="143"
+          x2="100"
+          y2="455"
+          stroke="black"
+          strokeWidth="1"
+          markerStart="url(#arrowReversed)"
+          markerEnd="url(#arrow)"
+        /> 
+
+        <line
+          x1="100"
+          y1="139"
+          x2="140"
+          y2="139"
+          stroke="black"
+          strokeWidth=".5"
+          strokeDasharray="2"
+        />
+        <line
+          x1="100"
+          y1="460"
+          x2="140"
+          y2="460"
+          stroke="black"
+          strokeWidth=".5"
+          strokeDasharray="2"
+        /> 
+        </>
         )}
         <rect
           x="150"
@@ -107,17 +186,20 @@ const DiagramLED = () => {
         />
 
         {/* Receptacle Box (Dashed) */}
-        <rect
-          x="385"
-          y="370"
-          width="30"
-          height="30"
-          fill={COLORS.background}
-          stroke={COLORS.highlight}
-          strokeDasharray="3,3"
-          strokeWidth="1.5"
-        />
-        <rect
+        {/* Receptacle Box - Render only if a valid option is selected */}
+        {selectedReceptacleBox?.Brand && (
+        <>
+          <rect
+            x="385"
+            y="370"
+            width="30"
+            height="30"
+            fill={COLORS.background}
+            stroke={COLORS.highlight}
+            strokeDasharray="3,3"
+            strokeWidth="1.5"
+          />
+          <rect
           x="380"
           y="365"
           width="40"
@@ -127,6 +209,23 @@ const DiagramLED = () => {
           strokeDasharray="3,3"
           strokeWidth="1.5"
         />
+         <line
+          x1="410"
+          y1="380"
+          x2="455"
+          y2="80"
+          stroke="black"
+          strokeWidth="1"
+          markerStart="url(#circle)"
+        />
+        <text x="455" y="78" textAnchor="start" fontSize="12">
+          Install recessed receptacle box
+        </text>
+        </>
+        )}
+        
+    
+        
 
         {/* Diagonal Lines */}
         <line
@@ -155,18 +254,7 @@ const DiagramLED = () => {
           </marker>
         </defs>
 
-        <line
-          x1="410"
-          y1="380"
-          x2="455"
-          y2="80"
-          stroke="black"
-          strokeWidth="1"
-          markerStart="url(#circle)"
-        />
-        <text x="455" y="78" textAnchor="start" fontSize="12">
-          Install recessed receptacle box
-        </text>
+       
 
         {/* measuremets */}
         {/* 48.5" at top */}
@@ -217,79 +305,7 @@ const DiagramLED = () => {
           48.5"
         </text>
 
-        {/* 51" at bottom */}
-        <line
-          x1="146"
-          y1="500"
-          x2="654"
-          y2="500"
-          stroke="black"
-          strokeWidth="1"
-          markerStart="url(#arrowReversed)"
-          markerEnd="url(#arrow)"
-        />
-
-        <line
-          x1="140"
-          y1="500"
-          x2="140"
-          y2="460"
-          stroke="black"
-          strokeWidth=".5"
-          strokeDasharray="2"
-        />
-        <line
-          x1="660"
-          y1="500"
-          x2="660"
-          y2="460"
-          stroke="black"
-          strokeWidth=".5"
-          strokeDasharray="2"
-        />
-        <rect
-          x="350"
-          y="518"
-          width="40"
-          height="20"
-          fill="none"
-          stroke="black"
-          strokeWidth="1"
-        />
-        <text x="370" y="530" textAnchor="middle" fontSize="12">
-          51"
-        </text>
-
-        {/* 30.5" on left */}
-        <line
-          x1="100"
-          y1="143"
-          x2="100"
-          y2="455"
-          stroke="black"
-          strokeWidth="1"
-          markerStart="url(#arrowReversed)"
-          markerEnd="url(#arrow)"
-        />
-
-        <line
-          x1="100"
-          y1="139"
-          x2="140"
-          y2="139"
-          stroke="black"
-          strokeWidth=".5"
-          strokeDasharray="2"
-        />
-        <line
-          x1="100"
-          y1="460"
-          x2="140"
-          y2="460"
-          stroke="black"
-          strokeWidth=".5"
-          strokeDasharray="2"
-        />
+      
 
         <rect
           x="50"

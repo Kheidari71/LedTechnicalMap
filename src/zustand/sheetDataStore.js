@@ -14,5 +14,8 @@ export const useSheetDataStore = create((set) => ({
   isNiche: true,
 
   toggleIsHorizontal: ()=>set(old=>({...old, isHorizontal: !old.isHorizontal})),
-  toggleIsNiche: ()=>set(old=>({...old, isNiche: !old.isNiche}))
+  toggleIsNiche: ()=>set(old=>({...old, isNiche: !old.isNiche})),
+
+  variantDepth: 0,
+  setVarientDepth: (val)=>set(old=>({...old, variantDepth: val})),
 }));
