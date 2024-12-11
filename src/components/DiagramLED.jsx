@@ -11,10 +11,18 @@ const DiagramLED = () => {
   };
 //niche lines should be hidden
   const { isHorizontal, isNiche, toggleIsHorizontal, toggleIsNiche ,selectedReceptacleBox , selectedMediaPlayer,
-  selectedMount
+  selectedMount ,  selectedScreen,
+  variantDepth
  } =
     useSheetDataStore((state) => state);
+
+    const width = selectedScreen?.["Width"] || 0;
+    console.log(width)
+    const height = selectedScreen?.["Height"] || 0;
+    console.log(height)
+
 console.log(selectedReceptacleBox)
+console.log(selectedScreen)
   return (
     <div className="w-full h-auto p-4 bg-white">
       <h2 className="text-md font-semibold text-gray-800 mb-6 items-center">
@@ -302,7 +310,9 @@ console.log(selectedReceptacleBox)
           fontSize="12"
           className="measurement-text"
         >
-          48.5"
+          {
+              width
+            }
         </text>
 
       
@@ -380,7 +390,9 @@ console.log(selectedReceptacleBox)
           strokeWidth="1"
         />
         <text x="730" y="280" textAnchor="middle" fontSize="12">
-          28"
+        {
+             height
+            }
         </text>
 
         {/* Floor Line */}

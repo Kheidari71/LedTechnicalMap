@@ -41,18 +41,24 @@ const DimensionBoxes = () => {
           <DimensionItem
             label="Height"
             value={
-              selectedScreen["Height"]
-                ? (parseFloat(selectedScreen["Height"]) + 1.5).toFixed(2)
-                : 0
-            }
+    selectedScreen?.["Screen Size"] // Ensure the "Height" property exists
+      ? (
+          parseFloat(selectedScreen["Height"]) +
+          (selectedScreen["Height"] < 55 ? 1.5 : 2) // Add 1.5 if height < 55, otherwise add 2
+        ).toFixed(2) // Convert to a string with two decimal places
+      : 0 // Fallback to 0 if "Height" is undefined
+  }
             className="items-center text-center justify-between border border-gray-300 h-8"
           />
           <DimensionItem
             label="Width"
             value={
-              selectedScreen["Width"]
-                ? (parseFloat(selectedScreen["Width"]) + 1.5).toFixed(2)
-                : 0
+              selectedScreen?.["Screen Size"] // Ensure the "Height" property exists
+                ? (
+                    parseFloat(selectedScreen["Height"]) +
+                    (selectedScreen["Height"] < 55 ? 1.5 : 2) // Add 1.5 if height < 55, otherwise add 2
+                  ).toFixed(2) // Convert to a string with two decimal places
+                : 0 // Fallback to 0 if "Height" is undefined
             }
             className="flex flex-row items-center justify-between border border-gray 300 h-8"
           />

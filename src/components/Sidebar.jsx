@@ -113,7 +113,7 @@ const Sidebar = ({ toPDF, targetRef }) => {
                 className="flex flex-row items-center justify-between border border-gray-300 h-8"
                 label="Niche Depth var"
                 value={variantDepth}
-                // onChange= {e=>console.log(e.target.value)}
+                
                 onChange={e=>setVarientDepth(e.target.value)}
               />
             </div>
