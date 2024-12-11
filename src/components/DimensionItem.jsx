@@ -1,10 +1,10 @@
 import React from "react";
 
-const DimensionItem = ({ label ,className, ...rest }) => {
+const DimensionItem = ({ label, className, ...rest }) => {
   return (
     <div className={`flex items-center text-center  ${className}`}>
-        <div className="flex justify-center bg-gray-400 text-center w-1/2 items-center h-full ">
-      <span className=" text-white   text-sm ">{label}</span>
+      <div className="flex justify-center bg-gray-400 text-center w-1/2 items-center h-full ">
+        <span className=" text-white   text-sm ">{label}</span>
       </div>
 
       <input

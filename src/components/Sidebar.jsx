@@ -7,17 +7,26 @@ import TextInput from "./TextInput";
 import useExcelData from "../hook/formData";
 import { useSheetDataStore } from "../zustand/sheetDataStore";
 import useDescriptionDataStore from "../zustand/descriptionDataStore";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import Hamburger from "./Hamburger";
 
 const Sidebar = ({ toPDF, targetRef }) => {
-//hamburger menu
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  // description form states
-  const { formData, setFormData } = useDescriptionDataStore();
-  
-  // function to set changes in state
-  const handleInputChange = (key, value) => {
-    setFormData(key, value); // Update the global state
+
+  //hamburger menu
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+
   };
+
+  // description form states
+  const { formData, setFormData } = useDescriptionDataStore((state) => state);
+
+
+
+  // function to set changes in state
+
 
   // sheetData state
   const { sheetData, loading, error } = useExcelData("/Db.xlsx");
@@ -51,18 +60,12 @@ const Sidebar = ({ toPDF, targetRef }) => {
   }, [sheetData]);
 
   // Function to set default values for all fields
-  const setCurrentValues = () => {
-    setFormData("title", formData.title);
-    setFormData("drawer", formData.drawer);
-    setFormData("department", formData.department);
-    setFormData("screenSize", formData.screenSize);
-    setFormData("date", formData.date);
-  };
 
   if (!selectedScreen) return null;
 
   return (
-    <div className="overflow-y-auto h-full fixed w-72 lg:right-0 -right-72 top-0 pt-14">
+    <div className={`overflow-y-auto h-full fixed w-72 lg:right-0 ${isOpen ? "-translate-x-full" : "translate-x-0"
+      } -right-72 top-0 pt-14`}>
       <div className="w-full p-2">
         <div className="w-full border">
           <p className="pl-5 pt-4 text-start font-bold text-sm mb-1">
@@ -180,42 +183,35 @@ const Sidebar = ({ toPDF, targetRef }) => {
                 label="Title"
                 placeholder="Enter title"
                 value={formData.title}
-              
+                onChange={(e) => setFormData("title", e.target.value)}
               />
               <TextInput
                 label="Drawer"
                 placeholder="Enter drawer name"
                 value={formData.drawer}
-                onChange={(e) => handleInputChange("drawer", e.target.value)}
+                onChange={(e) => setFormData("drawer", e.target.value)}
               />
               <TextInput
                 label="Department"
                 placeholder="Enter department"
                 value={formData.department}
-                onChange={(e) => handleInputChange("department", e.target.value)}
+                onChange={(e) => setFormData("department", e.target.value)}
               />
               <TextInput
                 label="Screen Size"
                 placeholder="Enter screen size"
                 value={formData.screenSize}
-                onChange={(e) => handleInputChange("screenSize", e.target.value)}
+                onChange={(e) => setFormData("screenSize", e.target.value)}
               />
               <TextInput
                 label="Date"
                 placeholder="Enter date"
                 value={formData.date}
-                onChange={(e) => handleInputChange("date", e.target.value)}
+                onChange={(e) => setFormData("date", e.target.value)}
               />
             </TextInputGroup>
-            <button
-              onClick={(e) => {
-                e.preventDefault(); // Prevent default form submission
-                setCurrentValues(); // Call function to set default values
-              }}
-              className="mb-1 mt-1 m-auto rounded-lg px-1 text-white w-4/5 bg-blue-500 hover:bg-blue-600 font-semibold border-2 border-transparent hover:border-blue-600 shadow-md hover:shadow-lg transition-all duration-300 ease-in-out"
-            >
-              Submit 
-            </button>
+            
+           
             <button
               onClick={(e) => {
                 e.preventDefault();
@@ -225,9 +221,12 @@ const Sidebar = ({ toPDF, targetRef }) => {
             >
               Download
             </button>
-            
+
           </form>
         </div>
+      </div>
+      <div className="text-menu_item_on lg:block fixed top-6 left-4 z-50">
+        <Hamburger toggleSidebar={toggleSidebar} icon={<AiOutlineMenu className="text-blue-500 dark:text-gray-300" size={30} />} />
       </div>
     </div>
   );

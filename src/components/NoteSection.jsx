@@ -4,19 +4,19 @@ import useExcelData from "../hook/formData";
 import { useSheetDataStore } from "../zustand/sheetDataStore";
 
 const NotesSection = () => {
-    const { sheetData, loading, error } = useExcelData("/Db.xlsx");
-    const {
-        selectedReceptacleBox,
-        setSelectedReceptacleBox
-      } = useSheetDataStore((state) => state);
-   
-    useEffect(() => {
-        setSelectedReceptacleBox(sheetData.sheet4);
-      }, [sheetData]);
-     console.log(selectedReceptacleBox)
-    return (
-        <>
-        {selectedReceptacleBox?.Brand && (
+  const { sheetData, loading, error } = useExcelData("/Db.xlsx");
+  const {
+    selectedReceptacleBox,
+    setSelectedReceptacleBox
+  } = useSheetDataStore((state) => state);
+
+  useEffect(() => {
+    setSelectedReceptacleBox(sheetData.sheet4);
+  }, [sheetData]);
+
+  return (
+    <>
+      {selectedReceptacleBox?.Brand && (
         <div className="text-start border border-gray-300 rounded-sm p-4 mb-2 shadow-sm">
           {/* Title */}
           <h3 className="text-base font-semibold text-gray-700">Notes</h3>
@@ -50,7 +50,7 @@ const NotesSection = () => {
           </div>
         </div>
       )}
-        </>
-    )}
-    export default NotesSection;
-        
+    </>
+  )
+}
+export default NotesSection;

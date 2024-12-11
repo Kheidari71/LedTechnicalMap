@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SelectInput = ({ label, options,className, ...rest }) => {
+const SelectInput = ({ label, options, className, ...rest }) => {
   return (
     <div className="mb-1 w-full px-4">
       <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">

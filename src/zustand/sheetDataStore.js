@@ -18,4 +18,6 @@ export const useSheetDataStore = create((set) => ({
 
   variantDepth: 0,
   setVarientDepth: (val)=>set(old=>({...old, variantDepth: val})),
+
+  
 }));

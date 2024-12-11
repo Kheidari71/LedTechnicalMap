@@ -3,13 +3,13 @@ import Logo from "../img/logo.png";
 import useDescriptionDataStore from "../zustand/descriptionDataStore";
 
 const InfoTable = () => {
-  const { formData } = useDescriptionDataStore();  // Get formData from store
-console.log({formData})
+  const { formData } = useDescriptionDataStore((state) => state);  // Get formData from store
 
-useEffect(() => {
-  
 
-}, [formData]);
+  useEffect(() => {
+
+
+  }, [formData]);
   return (
     <div className="border rounded-md shadow-md px-4 pb-4 mb-5 bg-white w-full max-w-4xl mx-auto">
       {/* Logo and Address */}
