@@ -114,7 +114,8 @@ console.log(selectedScreen)
           strokeWidth="1"
         />
         <text x="370" y="530" textAnchor="middle" fontSize="12">
-          51"
+         {parseFloat(height) +
+                    (height < 55 ? 1.5 : 2) }
         </text>
 
         {/* 30.5" on left */}
@@ -327,7 +328,8 @@ console.log(selectedScreen)
           strokeWidth="1"
         />
         <text x="70" y="280" textAnchor="middle" fontSize="12">
-          30.5"
+        {parseFloat(width) +
+                    (width < 55 ? 1.5 : 2) }
         </text>
 
         <rect

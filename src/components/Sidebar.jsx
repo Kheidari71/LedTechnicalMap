@@ -35,6 +35,7 @@ const Sidebar = ({ toPDF, targetRef }) => {
       setSelectedReceptacleBox(sheetData.sheet4[0]);
     }
   }, [sheetData]);
+console.log(selectedReceptacleBox);
 
   return selectedScreen ? (
     <div className="overflow-y-auto h-full fixed w-72 lg:right-0 -right-72 top-0 pt-14">
@@ -86,28 +87,35 @@ const Sidebar = ({ toPDF, targetRef }) => {
                 )
               }
             />
-            <SelectInput
-              className="text-center"
-              label="Receptacle Box"
-              value={selectedReceptacleBox ? selectedReceptacleBox["MFG. PART"] : ""}
-              options={[
-                { value: "", label: "Select option" },
-                ...sheetData.sheet4.map((sh) => ({
-                  value: sh["MFG. PART"],
-                  label: sh["MFG. PART"],
-                })),
-              ]}
-              onChange={(e) =>
-                setSelectedReceptacleBox(
-                  sheetData.sheet4.find((q) => q["MFG. PART"] == e.target.value)
-                )
-              }
-            />
+
+
+<SelectInput
+  className="text-center"
+  label="Receptacle Box"
+  value={selectedReceptacleBox?.["MFG. PART"] || ""} // Ensure default value is "" when nothing is selected
+  options={[
+    { value: "", label: "Select option" }, // Default option
+    ...sheetData.sheet4.map((sh) => ({
+      value: sh["MFG. PART"],
+      label: sh["MFG. PART"],
+    })),
+  ]}
+  onChange={(e) => {
+    const selectedValue = e.target.value;
+    if (selectedValue === "") {
+      setSelectedReceptacleBox(null); // Reset to null when "Select option" is chosen
+    } else {
+      const selectedBox = sheetData.sheet4.find((q) => q["MFG. PART"] === selectedValue);
+      setSelectedReceptacleBox(selectedBox);
+    }
+  }}
+/>
+
             <div className="grid mt-2 grid-cols-1 px-5 ">
               <DimensionItem
                 className="flex flex-row items-center justify-between border border-gray-300 h-8"
                 label="Floor Distance"
-                value="28"
+                value="50"
               />
               <DimensionItem
                 className="flex flex-row items-center justify-between border border-gray-300 h-8"

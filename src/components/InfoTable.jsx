@@ -3,17 +3,13 @@ import Logo from "../img/logo.png";
 
 const InfoTable = ({ state }) => {
   return (
-    <div className="border rounded-md shadow-md p-4 bg-white w-full max-w-4xl mx-auto">
+    <div className="border rounded-md shadow-md px-4 pb-4 mb-5 bg-white w-full max-w-4xl mx-auto">
       {/* Logo and Address */}
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center justify-between ">
         <div className="bg-gray-800 ">
           <img className="w-14" src={Logo} alt="Signcast Media" />
         </div>
-        <div className="text-right">
-          <p className="font-medium text-gray-700">361 Steelcase RD. W, #1</p>
-          <p className="font-medium text-gray-700">MARKHAM, ONTARIO</p>
-          <p className="font-medium text-gray-700">Phone: (416) 900-2233</p>
-        </div>
+      
       </div>
 
       {/* Description */}
