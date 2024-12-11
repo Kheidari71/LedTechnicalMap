@@ -227,7 +227,17 @@ console.log(selectedScreen)
           strokeWidth="1"
           markerStart="url(#circle)"
         />
-        <text x="455" y="78" textAnchor="start" fontSize="12">
+        <line
+          x1="455"
+          y1="80"
+          x2="493"
+          y2="80"
+          stroke="black"
+          strokeWidth="1"
+        
+        />
+
+        <text x="495" y="78" textAnchor="start" fontSize="12">
           Install recessed receptacle box
         </text>
         </>
@@ -245,7 +255,16 @@ console.log(selectedScreen)
           stroke="black"
           strokeWidth="1"
         />
-        <text x="555" y="50" textAnchor="end" fontSize="12">
+<line
+          x1="435"
+          y1="53"
+          x2="453"
+          y2="53"
+          stroke="black"
+          strokeWidth="1"
+        />
+
+        <text x="595" y="50" textAnchor="end" fontSize="12">
           Intended Screen Position
         </text>
 
