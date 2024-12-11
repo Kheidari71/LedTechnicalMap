@@ -4,7 +4,7 @@ import React from 'react';
 const Hamburger = ({ toggleSidebar, icon }) => {
     return (
         <div>
-            <button onClick={toggleSidebar}>
+            <button>
                 {icon}
             </button>
         </div>

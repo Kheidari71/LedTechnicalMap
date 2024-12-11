@@ -10,15 +10,12 @@ import useDescriptionDataStore from "../zustand/descriptionDataStore";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import Hamburger from "./Hamburger";
 
-const Sidebar = ({ toPDF, targetRef }) => {
+const Sidebar = ({ toPDF, targetRef, isOpen, toggleSidebar}) => {
 
   //hamburger menu
-  const [isOpen, setIsOpen] = useState(false);
 
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
+  console.log(isOpen)
 
-  };
 
   // description form states
   const { formData, setFormData } = useDescriptionDataStore((state) => state);
@@ -64,10 +61,9 @@ const Sidebar = ({ toPDF, targetRef }) => {
   if (!selectedScreen) return null;
 
   return (
-    <div className={`overflow-y-auto h-full fixed w-72 lg:right-0 ${isOpen ? "-translate-x-full" : "translate-x-0"
-      } -right-72 top-0 pt-14`}>
+    <div className={`overflow-y-auto  h-full fixed w-72 lg:right-0 transition-all bg-white  top-0 pt-14 shadow-xl lg:shadow-none  ${isOpen ? "right-0" : "-right-72"}`}>
       <div className="w-full p-2">
-        <div className="w-full border">
+        <div className="w-full lg:border">
           <p className="pl-5 pt-4 text-start font-bold text-sm mb-1">
             Configuration
           </p>
@@ -176,7 +172,7 @@ const Sidebar = ({ toPDF, targetRef }) => {
         </div>
       </div>
       <div className="w-full px-2">
-        <div className="w-full border">
+        <div className="w-full lg:border">
           <form className="grid grid-col grid-cols-1 text-start">
             <TextInputGroup title="Description">
               <TextInput
@@ -225,9 +221,7 @@ const Sidebar = ({ toPDF, targetRef }) => {
           </form>
         </div>
       </div>
-      <div className="text-menu_item_on lg:block fixed top-6 left-4 z-50">
-        <Hamburger toggleSidebar={toggleSidebar} icon={<AiOutlineMenu className="text-blue-500 dark:text-gray-300" size={30} />} />
-      </div>
+      
     </div>
   );
 };
